@@ -7,6 +7,7 @@ namespace EFDatabase.Model
 {
     public class Products
     {
+        [Key]
         public int ProductsId { get; set; }
         public string? Name { get; set; }
         public decimal? Price { get; set; }
