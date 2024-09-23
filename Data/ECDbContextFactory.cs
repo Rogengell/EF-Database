@@ -10,7 +10,7 @@ namespace EFDatabase.Data
 {
     public class ECDbContextFactory : IDesignTimeDbContextFactory<ECDbContext>
     {
-         public ECDbContext CreateDbContext(string[] args = null)
+         public ECDbContext CreateDbContext(string[]? args = null)
         {
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
