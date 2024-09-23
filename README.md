@@ -4,7 +4,7 @@
 
 ## [Migrate to Categories](https://github.com/Rogengell/EF-Database/tree/add-categories)
 
-## Migrate to Product Ratings
+## [Migrate to Product Ratings](https://github.com/Rogengell/EF-Database/tree/add-ratings)
 
 ## Merge and Conflict Resolution
 
