@@ -1,6 +1,6 @@
 # Entity Framework Core Migrations
 
-## Setup EF Core
+## [Setup EF Core](https://github.com/Rogengell/EF-Database/tree/initial-setup)
 
 ## Migrate to Categories
 
