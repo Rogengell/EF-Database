@@ -13,5 +13,6 @@ namespace EFDatabase.Data
 
         public DbSet<Products>? product { get; set; }
         public DbSet<Categories>? categories { get; set; }
+        public DbSet<ProductRatings>? productRatings { get; set; }
     }
 }
