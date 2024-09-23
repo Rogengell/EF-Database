@@ -12,5 +12,6 @@ namespace EFDatabase.Data
         public ECDbContext(DbContextOptions<ECDbContext> options) : base(options) { }
 
         public DbSet<Products>? product { get; set; }
+        public DbSet<Categories>? categories { get; set; }
     }
 }

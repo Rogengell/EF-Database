@@ -22,6 +22,22 @@ namespace EFDatabase.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("EFDatabase.Model.Categories", b =>
+                {
+                    b.Property<int>("categorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("categorId"));
+
+                    b.Property<string>("CategoriesName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("categorId");
+
+                    b.ToTable("categories");
+                });
+
             modelBuilder.Entity("EFDatabase.Model.Products", b =>
                 {
                     b.Property<int>("ProductsId")
@@ -29,6 +45,9 @@ namespace EFDatabase.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductsId"));
+
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -38,7 +57,23 @@ namespace EFDatabase.Migrations
 
                     b.HasKey("ProductsId");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("product");
+                });
+
+            modelBuilder.Entity("EFDatabase.Model.Products", b =>
+                {
+                    b.HasOne("EFDatabase.Model.Categories", "Categories")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Categories");
+                });
+
+            modelBuilder.Entity("EFDatabase.Model.Categories", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
