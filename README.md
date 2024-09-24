@@ -6,44 +6,44 @@
 3. Install nuget packages entityframewarkCore , design, sqlServer, tool
 4. Create an appsetting file (where the connection is stored)
 5. Data folder
-    a. ECDbcontext.cs file
-        i.    Handles connection
-        ii.   Handles tables setup
-    b. ECDbContextFactory.cs file
-        i.    Sets up where and how to connect
+    - ECDbcontext.cs file
+        - Handles connection
+        - Handles tables setup
+    - ECDbContextFactory.cs file
+        - Sets up where and how to connect
 6. In the main / Program.cs file
-    a. It loads the json file appsettings
-    b. Setup the whole db and connection 
-    c. Checker if instance exists if exists it start with the migration 
+    - It loads the json file appsettings
+    - Setup the whole db and connection 
+    - Checker if instance exists if exists it start with the migration 
 7. Model folder
-    a. Products.cs
-        i.    Is a model class
-        ii.   Her we configure the table layout
-        iii.  Declare the context of the columns
+    - Products.cs
+        - Is a model class
+        - Her we configure the table layout
+        - Declare the context of the columns
 8. After all is setup properly we can run the command dotnet ef migrations add < InitialCreate > 
 9. The last step is to run the dotnet ef database update this will update to the newest migration version and the previously not executed migrations
 
 ## [Migrate to Categories](https://github.com/Rogengell/EF-Database/tree/add-categories)
 1. Model folder
-    a. Products.cs
-        i.    Add Categories connection
-    b. Categories.cs
-        i.    Is a model class
-        ii.   Her we configure the table layout
-        iii.  Declare the context of the columns
-        iiii. add product connection
+    - Products.cs
+        - Add Categories connection
+    - Categories.cs
+        - Is a model class
+        - Her we configure the table layout
+        - Declare the context of the columns
+        - add product connection
 2. After all is setup properly we can run the command dotnet ef migrations add < CategorisAndKey > 
 3. The last step is to run the dotnet ef database update this will update to the newest migration version and the previously not executed migrations
 
 ## [Migrate to Product Ratings](https://github.com/Rogengell/EF-Database/tree/add-ratings)
 1. Model folder
-    a. Products.cs
-        i.    add ProductRatings connection
-    b. ProducktRatings.cs
-        i.    Is a model class
-        ii.   Her we configure the table layout
-        iii.  Declare the context of the columns
-        iiii. add product connection
+    - Products.cs
+        - add ProductRatings connection
+    - ProducktRatings.cs
+        - Is a model class
+        - Her we configure the table layout
+        - Declare the context of the columns
+        - add product connection
 2. After all is setup properly we can run the command dotnet ef migrations add < ProducktRating > 
 3. The last step is to run the dotnet ef database update this will update to the newest migration version and the previously not executed migrations
 
