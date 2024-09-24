@@ -15,28 +15,13 @@ namespace EFDatabase.Migrations
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
+#pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("EFDatabase.Model.Categories", b =>
-                {
-                    b.Property<int>("categorId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("categorId"));
-
-                    b.Property<string>("CategoriesName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("categorId");
-
-                    b.ToTable("categories");
-                });
-                
             modelBuilder.Entity("EFDatabase.Model.ProductRatings", b =>
                 {
                     b.Property<int>("ProductRatingsId")
@@ -58,7 +43,7 @@ namespace EFDatabase.Migrations
 
                     b.HasIndex("ProductsId");
 
-                    b.ToTable("productRatings");
+                    b.ToTable("productRatings", (string)null);
                 });
 
             modelBuilder.Entity("EFDatabase.Model.Products", b =>
@@ -69,9 +54,6 @@ namespace EFDatabase.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductsId"));
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -80,23 +62,7 @@ namespace EFDatabase.Migrations
 
                     b.HasKey("ProductsId");
 
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("product");
-                });
-
-            modelBuilder.Entity("EFDatabase.Model.Products", b =>
-                {
-                    b.HasOne("EFDatabase.Model.Categories", "Categories")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId");
-
-                    b.Navigation("Categories");
-                });
-
-            modelBuilder.Entity("EFDatabase.Model.Categories", b =>
-                {
-                        b.Navigation("Products");
+                    b.ToTable("product", (string)null);
                 });
 
             modelBuilder.Entity("EFDatabase.Model.ProductRatings", b =>
@@ -109,6 +75,7 @@ namespace EFDatabase.Migrations
 
                     b.Navigation("Products");
                 });
+#pragma warning restore 612, 618
         }
     }
 }
